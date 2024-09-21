@@ -15,8 +15,6 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
     %header.header
       .header_logos
         - if user_signed_in?
@@ -26,5 +24,8 @@
               = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }
         - else
           = link_to 'ログイン', new_user_session_path, class: 'login_button'
-
+    - if flash.present?
+      .flash
+        - flash.each do |key,value|
+          %div{:class => key}= value
     = yield
