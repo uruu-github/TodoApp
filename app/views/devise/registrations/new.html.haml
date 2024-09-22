@@ -10,7 +10,7 @@
       = f.label :password, class: 'label'
       - if @minimum_password_length
         %em
-          (#{@minimum_password_length} characters minimum)
+          (最低#{@minimum_password_length.to_s.tr('0-9', '０-９')}文字必要です)
       %br/
       = f.password_field :password, autocomplete: "new-password", class:'field'
     .field
