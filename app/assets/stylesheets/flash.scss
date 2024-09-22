@@ -1,0 +1,53 @@
+
+.flash {
+    position: fixed;
+    font-size: 1em;
+    top: 0.6em;
+    left: 1em;
+    width: 10em;
+    background: white;
+    -webkit-animation: fade-in-out;
+    animation: fade-in-out;
+    visibility: hidden;
+    z-index: 1;
+    padding: 0.5em;
+    animation-duration: 3s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 0.25em;
+    text-align: center;
+  }
+  
+  @-webkit-keyframes fade-in-out {
+    0% {
+      visibility: visible;
+      opacity: 1;
+    }
+  
+    50% {
+      visibility: visible;
+      opacity: 1;
+    }
+  
+    100% {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fade-in-out {
+    0% {
+      visibility: visible;
+      opacity: 1;
+    }
+  
+    50% {
+      visibility: visible;
+      opacity: 1;
+    }
+  
+    100% {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+  
