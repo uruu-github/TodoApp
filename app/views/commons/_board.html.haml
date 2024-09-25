@@ -1,0 +1,7 @@
+.container#board
+  = link_to board_path(id: board.id) do
+    %h2 ボード: No.#{board.id}
+    .label_board タイトル
+    .field_board= board.title
+    .label_board 説明
+    .area_board= board.description

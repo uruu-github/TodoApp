@@ -1,4 +1,4 @@
-@import './variables';
+@import 'variables';
 
 #sign {
     display: block;
@@ -35,7 +35,7 @@
   width: 100%;
   display: block;
   margin-bottom: 1em;
-  padding: 1em 0;
+  padding: 1em 0.5em;
   border-color: $bg-dark-color;
   border-radius: 0.5em;
 }
