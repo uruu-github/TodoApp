@@ -10,31 +10,53 @@
     justify-content: end;    /* コンテンツを右端に揃える */
   }
 
-  /* ドロップダウンメニューのスタイル */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    padding: 0.75em;
-  }
+/* ドロップダウンメニュー全体のスタイル */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding: 0.75em;
+}
 
-  .dropdown_contents {
-    display: none; /* 初期状態では非表示 */
-    position: absolute;
-    background-color: $bg-base-color;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-    padding: 1em;
-    border-radius: 0.5em;
-  }
+.dropdown_contents {
+  display: none; /* 初期状態では非表示 */
+  position: absolute;
+  background-color: $bg-base-color;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 0.5em 0;
+  border-radius: 0.5em;
+  min-width: 150px; /* ドロップダウンの最小幅を指定 */
+  right: 5px;
+}
 
-  /* ホバー時にドロップダウンメニューを表示 */
-  .dropdown:hover .dropdown_contents {
-    display: block;
-  }
+/* ホバー時にドロップダウンメニューを表示 */
+.dropdown:hover .dropdown_contents {
+  display: block;
+}
 
-  .dropdown_toggle {
-    cursor: pointer;
-  }
+.dropdown_toggle {
+  cursor: pointer;
+  width: 50px;  /* アバターの幅 */
+  height: 50px; /* アバターの高さ */
+  border-radius: 10%; /* 丸い形にする */
+  object-fit: cover;  /* 画像のアスペクト比を維持 */
+}
+
+/* ドロップダウン内のリンクのスタイル */
+.dropdown_contents a {
+  display: block; /* リンクをボックス状にする */
+  padding: 0.25em; /* リンクに余白を追加 */
+  border: 1px solid $bg-base-color; /* リンクを囲むボーダー */
+  margin-bottom: 0.5em; /* リンク間に余白を追加 */
+  border-radius: 0.25em; /* リンクの角を丸める */
+  background-color: $bg-base-color; /* 背景色を設定 */
+  text-align: center; /* テキストを中央揃え */
+  white-space: nowrap; /* テキストを折り返さずに表示 */
+}
+
+.dropdown_contents a:last-child {
+  margin-bottom: 0; /* 最後のリンクの下には余白を追加しない */
+}
 
   /* ログインボタンのスタイル */
   .login_button {
