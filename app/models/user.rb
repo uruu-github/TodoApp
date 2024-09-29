@@ -22,12 +22,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :boards
+
   has_one :profile, dependent: :destroy
 
   def display_name
     profile&.nickname || self.email.split('@').first
   end
-
 
   def avatar_image
     if profile&.avatar&.attached?
@@ -36,4 +37,5 @@ class User < ApplicationRecord
       'default-user.svg'
     end
   end
+
 end
