@@ -51,6 +51,10 @@ a {
 
 img {
   margin: 0.5em;
+  width: 50px;     /* アバターの幅 */
+  height: 50px;    /* アバターの高さ */
+  border-radius: 10%; /* 丸い形にする */
+  object-fit: cover;  /* 画像のアスペクト比を維持 */
 }
 
 h2 {
