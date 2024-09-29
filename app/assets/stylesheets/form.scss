@@ -6,49 +6,42 @@
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-      h2 {
-        font-size: 2em;
-        text-align: center;
-        padding: 1em;
-      }
     }
 
 .label {
   font-size: 1.2em;
   font-weight: bold;
   margin-top: 1em;
+  margin-bottom: 1em;
   display: block;
-
-  &_linked {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-left: 0.5em;
-    text-decoration: underline;
-  }
-
-  &_linked:hover {
-    cursor: pointer;
-  }
 }
 
 .field {
   width: 100%;
   display: block;
   margin-bottom: 1em;
-  padding: 1em 0.5em;
-  border-color: $bg-dark-color;
-  border-radius: 0.5em;
+  padding: 1em 0em;
 }
 
-.area {
+.text_field {
   width: 100%;
   display: block;
   margin-bottom: 1em;
-  padding-bottom: 25em ;
-  border-color: $bg-dark-color;
+  padding: 1em 0.5em;
+  border: 0.1em solid $bg-dark-color;
   border-radius: 0.5em;
-  text-align: left;
-  vertical-align: top;
+  background-color: white;
+}
+
+.text_area {
+  width: 100%;
+  display: block;
+  margin-bottom: 1em;
+  padding: 0em 0.5em 25em 0.5em ;
+  border: 0.1em solid $bg-dark-color;
+  border-radius: 0.5em;
+  word-wrap: break-word;
+  background-color: white;
 }
 
 .check_box {

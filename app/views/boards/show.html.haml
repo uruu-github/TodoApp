@@ -1,1 +1,8 @@
-= render 'commons/board', board: @board
+.container
+  %h2 ボードNo.#{@board.id}
+  .field
+    .label Title
+    .text_field= @board.title
+  .field
+    .label Description
+    .text_area= @board.description

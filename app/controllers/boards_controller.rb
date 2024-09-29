@@ -3,10 +3,11 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    @boards = Board.all
   end
 
   def show
-    #set_article
+    #set_board
   end
 
   def new
