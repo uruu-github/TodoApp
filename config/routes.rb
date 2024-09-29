@@ -17,5 +17,6 @@ Rails.application.routes.draw do
 
   resources :boards
 
-
+  resource :profile, only: [:show, :edit, :update]
+  
 end
