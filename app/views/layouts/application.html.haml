@@ -21,6 +21,7 @@
           .dropdown
             = image_tag 'default-user.svg', class: 'dropdown_toggle'
             .dropdown_contents
+              = link_to 'プロフィール', profile_path
               = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }
         - else
           = link_to 'ログイン', new_user_session_path, class: 'login_button'
