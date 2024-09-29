@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_prof, only: [:show, :edit, :update]
 
   def show
-    @profile = current_user.profile
   end
 
   def edit
@@ -22,5 +22,9 @@ class ProfilesController < ApplicationController
       :avatar
     )
   end
-  
+
+  def set_prof
+    @profile = current_user.profile
+  end
+
 end
