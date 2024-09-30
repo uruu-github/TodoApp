@@ -1,3 +1,5 @@
 .container
   %h2 All Boards
   = render 'commons/boards', boards: @boards
+  %div.new_card
+    = link_to '+ Add New Board', new_board_path, class: 'new_board'
