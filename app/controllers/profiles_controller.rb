@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_prof
-    @profile = current_user.profile
+    @profile = current_user.build_profile
   end
 
 end

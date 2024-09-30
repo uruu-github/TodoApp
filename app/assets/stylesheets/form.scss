@@ -23,6 +23,16 @@
   padding: 1em 0em;
 }
 
+.text {
+  width: 20%;
+  display: block;
+  margin-bottom: 1em;
+  padding: 1em 0.5em;
+  border: 0.1em solid $bg-dark-color;
+  border-radius: 0.5em;
+  background-color: white;
+}
+
 .text_field {
   width: 100%;
   display: block;

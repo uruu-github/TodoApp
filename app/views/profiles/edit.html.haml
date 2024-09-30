@@ -1,28 +1,29 @@
 .container
   %ul
     - @profile.errors.full_messages.each do |message|
-    %li= message
+      %li= message
   %h2 Profile
-  = form_with(model: @profile, url: edit_profile_path, method: 'put', local: true, data: { turbo: false } ) do |f|
-    .field
-      %div
-        = f.label :avatar, class: 'label'
-      %div
-        = f.file_field :avatar
-    .field
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true, data: { turbo: false } ) do |f|
+    %div
+      = f.label :avatar, class: 'label'
+    %div
+      = f.file_field :avatar
+    %div
       = f.label :nickname, class: 'label'
+    %div
       = f.text_field :nickname, class: 'text_field'
-    .field
+    %div
       = f.label :introduction, class: 'label'
+    %div
       = f.text_area :introduction, class: 'text_area'
-
-
-    .field
+    %div
+      = f.label :gender, '性別', class: 'label'
+    %div
+      = f.select :gender, Profile.genders.keys, {}, { class: 'text' }
+    %div
       = f.label :birthday, class: 'label'
+    %div
       = f.date_field  :birthday, class: 'text'
-    
     .actions
-      = f.submit "Submit" ,class: 'submit_btn'
+      = f.submit "保存", class: 'submit_btn'
 
-
--# create_table "profiles", force: :cascade do |t|
