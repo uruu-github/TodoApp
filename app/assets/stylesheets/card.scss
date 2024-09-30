@@ -18,10 +18,20 @@ h2 {
   background-color: white;
 }
 
+.board_header {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
 .board_number {
   font-size: 1em;
   font-weight: bolder;
   margin-top: 0.5em;
+}
+
+.edit_board {
+
 }
 
 .board_title {
