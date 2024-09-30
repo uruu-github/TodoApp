@@ -1,5 +1,7 @@
 = link_to board_path(id: board.id) do
   .card
+    .board_number  ボードNo: #{board.id}
     .board_title= board.title
     .board_desc= board.description
     .board_avatar= image_tag board.user.avatar_image
+  
