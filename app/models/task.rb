@@ -1,19 +1,19 @@
 # == Schema Information
 #
-# Table name: boards
+# Table name: tasks
 #
 #  id          :bigint           not null, primary key
+#  delivery    :date
 #  description :text
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :bigint           not null
+#  board_id    :bigint           not null
 #
 # Indexes
 #
-#  index_boards_on_user_id  (user_id)
+#  index_tasks_on_board_id  (board_id)
 #
-class Board < ApplicationRecord
-  has_many :tasks, dependent: :destroy
-  belongs_to :user
+class Task < ApplicationRecord
+  belongs_to :board
 end
