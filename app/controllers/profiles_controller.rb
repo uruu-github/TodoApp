@@ -1,15 +1,16 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_prof, only: [:show, :edit, :update]
+  before_action :set_prof, only: [:edit, :update]
 
   def show
+    @profile = current_user.profile
   end
 
   def edit
   end
 
   def update
-    @profile = current_user.build_profile(profile_params)
+    @profile.assign_attributes(prodile_params)
     if @profile.save
       redirect_to profile_path, notice: 'プロフィールを更新しました。'
     else
@@ -30,7 +31,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_prof
-    @profile = current_user.build_profile
+    @profile = current_user.profile || current_user.build_profile
   end
 
 end
