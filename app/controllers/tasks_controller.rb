@@ -9,6 +9,14 @@ class TasksController < ApplicationController
   end
 
   def create
+    @task = current_user.tasks.build(task_params)
+    if @task.save
+      redirect_to task_path(@task), notice: '保存できたよ'
+    else
+      puts @board.errors.full_messages #エラーメッセージをコンソールに出力
+      flash.now[:error] = '保存に失敗しました' #失敗時にエラーメッセージを一時表示
+      render :new
+    end
   end
 
   def show
