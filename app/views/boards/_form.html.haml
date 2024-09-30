@@ -1,5 +1,10 @@
 .container#board
-  %h2 New Board
+  %h2
+    - if board.id.present?
+      ボードNo. #{board.id}
+    - else
+      New Board
+
   = form_with(model: board, url: boards_path, method: 'post', local: true, data: { turbo: false } ) do |f|
     -# .field
     -#   %div
