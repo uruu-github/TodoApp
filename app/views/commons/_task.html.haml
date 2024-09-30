@@ -8,6 +8,8 @@
           = link_to '編集する', edit_task_path(task)
           = link_to '削除する', task_path(task), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
   = link_to task_path(id: task.id) do
+    .task_eyecatch
+      =image_tag task.eyecatch, class: 'eyecatch'
     .task_title= task.title
     .task_desc= task.description
 
