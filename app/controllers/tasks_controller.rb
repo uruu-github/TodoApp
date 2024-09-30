@@ -1,9 +1,11 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
   end
 
   def new
+    @task = current_user.tasks.build
   end
 
   def create
