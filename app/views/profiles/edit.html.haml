@@ -1,7 +1,25 @@
-画像
-名前
-説明文
-性別
-誕生日
+.container
+  %h2 Profile
+  = form_with(model: @profile, url: edit_profile_path, method: 'post', local: true, data: { turbo: false } ) do |f|
+    .field
+      %div
+        = f.label :avatar, class: 'label'
+      %div
+        = f.file_field :avatar
+    .field
+      = f.label :nickname, class: 'label'
+      = f.text_field :nickname, class: 'text_field'
+    .field
+      = f.label :introduction, class: 'label'
+      = f.text_area :introduction, class: 'text_area'
 
-サブミットボタン
+
+    .field
+      = f.label :birthday, class: 'label'
+      = f.date_field  :birthday, class: 'text'
+    
+    .actions
+      = f.submit "Submit" ,class: 'submit_btn'
+
+
+-# create_table "profiles", force: :cascade do |t|
