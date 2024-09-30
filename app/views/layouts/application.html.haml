@@ -19,7 +19,7 @@
       .header_logos
         - if user_signed_in?
           .dropdown
-            = image_tag 'default-user.svg', class: 'dropdown_toggle'
+            = image_tag current_user.avatar_image, class: 'dropdown_toggle'
             .dropdown_contents
               = link_to 'プロフィール', profile_path
               = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }

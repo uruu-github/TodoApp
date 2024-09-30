@@ -26,9 +26,6 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  def display_name
-    profile&.nickname || self.email.split('@').first
-  end
 
   def avatar_image
     if profile&.avatar&.attached?
@@ -36,6 +33,22 @@ class User < ApplicationRecord
     else
       'default-user.svg'
     end
+  end
+
+  def display_name
+    profile&.nickname || self.email.split('@').first
+  end
+
+  def introduction
+    profile&.introduction
+  end
+
+  def gender
+    profile&.gender
+  end
+
+  def birthday
+    profile&.birthday
   end
 
 end

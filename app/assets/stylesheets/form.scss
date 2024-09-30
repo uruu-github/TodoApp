@@ -31,6 +31,7 @@
   border: 0.1em solid $bg-dark-color;
   border-radius: 0.5em;
   background-color: white;
+  text-align: center;
 }
 
 .text_field {
@@ -69,6 +70,26 @@
   color: $text-base-color;
   border-color: $bg-dark-color;
   border-radius: 0.5em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// -------profile-----------
+
+.profile_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit_prof {
+  display: flex;
+  align-items: center;
+}
+
+.edit_text {
+  font-size: 0.8em;
   &:hover {
     cursor: pointer;
   }

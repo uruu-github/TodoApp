@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile.assign_attributes(prodile_params)
+    @profile.assign_attributes(profile_params)
     if @profile.save
       redirect_to profile_path, notice: 'プロフィールを更新しました。'
     else
