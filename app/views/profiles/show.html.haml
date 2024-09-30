@@ -1,11 +1,10 @@
 .container
-  %div 画像
-  = image_tag current_user.avatar_image
-  %div 名前
-  = current_user.display_name
-  %div 説明文
-  -# = current_user.introduction
+  %h2 My Profile
+  %div= image_tag current_user.avatar_image
+  %div= current_user.display_name
+  %div 説明
   %div 性別
-  -# = current_user.gender
   %div 誕生日
-  %div 編集ボタン
+  = link_to 'Edit', edit_profile_path
+
+
