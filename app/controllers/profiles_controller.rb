@@ -9,6 +9,12 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    @profile = current_user.build_profile(profile_params)
+    if @profile.save
+      redirect_to profile_path, notice: 'プロフィールを更新しました。'
+    else
+      render :edit
+    end
   end
 
   private
