@@ -1,6 +1,6 @@
 .container
   %h2 Profile
-  = form_with(model: @profile, url: edit_profile_path, method: 'post', local: true, data: { turbo: false } ) do |f|
+  = form_with(model: @profile, url: edit_profile_path, method: 'put', local: true, data: { turbo: false } ) do |f|
     .field
       %div
         = f.label :avatar, class: 'label'
