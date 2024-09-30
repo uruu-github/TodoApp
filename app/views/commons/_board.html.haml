@@ -1,11 +1,12 @@
 .card
   .board_header
     .board_number ボードNo: #{board.id}
-    .dropdown_b
-      = image_tag 'edit.png', class: 'dropbtn_b'
-      .dropdown_contents_b.mini_b
-        = link_to '編集する', edit_board_path(board)
-        = link_to '削除する', board_path(board), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
+    - if user_signed_in? && current_user.boards.exists?(id: board.id)
+      .dropdown_b
+        = image_tag 'edit.png', class: 'dropbtn_b'
+        .dropdown_contents_b.mini_b
+          = link_to '編集する', edit_board_path(board)
+          = link_to '削除する', board_path(board), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
   = link_to board_path(id: board.id) do
     .board_title= board.title
     .board_desc= board.description

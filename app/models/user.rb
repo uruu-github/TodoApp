@@ -50,4 +50,8 @@ class User < ApplicationRecord
     profile&.birthday
   end
 
+  def has_written?(board)
+    boards.exists?(id: board.id)
+  end
+
 end
