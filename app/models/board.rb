@@ -14,5 +14,6 @@
 #  index_boards_on_user_id  (user_id)
 #
 class Board < ApplicationRecord
+  has_many :tasks
   belongs_to :user
 end

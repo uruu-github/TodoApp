@@ -15,8 +15,9 @@ Rails.application.routes.draw do
 
   root to: 'boards#index'
 
-  resources :boards
-  resources :tasks
+  resources :boards do
+    resources :tasks
+  end
 
 
   resource :profile, only: [:show, :edit, :update]
