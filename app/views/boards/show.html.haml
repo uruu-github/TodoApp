@@ -1,6 +1,10 @@
 .container
   %h2 ボードNo.#{@board.id}
   .field
+    .label Author
+    =image_tag @board.user.avatar_image
+    %div #{@board.user.display_name} さん
+  .field
     .label Title
     .text_field= @board.title
   .field
