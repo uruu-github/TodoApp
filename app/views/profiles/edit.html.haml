@@ -1,4 +1,7 @@
 .container
+  %ul
+    - @profile.errors.full_messages.each do |message|
+    %li= message
   %h2 Profile
   = form_with(model: @profile, url: edit_profile_path, method: 'put', local: true, data: { turbo: false } ) do |f|
     .field
