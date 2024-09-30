@@ -23,6 +23,17 @@
   padding: 1em 0em;
 }
 
+.text {
+  width: 20%;
+  display: block;
+  margin-bottom: 1em;
+  padding: 1em 0.5em;
+  border: 0.1em solid $bg-dark-color;
+  border-radius: 0.5em;
+  background-color: white;
+  text-align: center;
+}
+
 .text_field {
   width: 100%;
   display: block;
@@ -59,6 +70,26 @@
   color: $text-base-color;
   border-color: $bg-dark-color;
   border-radius: 0.5em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// -------profile-----------
+
+.profile_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit_prof {
+  display: flex;
+  align-items: center;
+}
+
+.edit_text {
+  font-size: 0.8em;
   &:hover {
     cursor: pointer;
   }

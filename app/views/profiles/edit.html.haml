@@ -1,7 +1,29 @@
-画像
-名前
-説明文
-性別
-誕生日
+.container
+  %ul
+    - @profile.errors.full_messages.each do |message|
+      %li= message
+  %h2 Profile
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true, data: { turbo: false } ) do |f|
+    %div
+      = f.label :avatar, class: 'label'
+    %div
+      = f.file_field :avatar
+    %div
+      = f.label :nickname, class: 'label'
+    %div
+      = f.text_field :nickname, class: 'text_field'
+    %div
+      = f.label :introduction, class: 'label'
+    %div
+      = f.text_area :introduction, class: 'text_area'
+    %div
+      = f.label :gender, '性別', class: 'label'
+    %div
+      = f.select :gender, Profile.genders.keys, {}, { class: 'text' }
+    %div
+      = f.label :birthday, class: 'label'
+    %div
+      = f.date_field  :birthday, class: 'text'
+    .actions
+      = f.submit "保存", class: 'submit_btn'
 
-サブミットボタン
