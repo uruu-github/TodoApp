@@ -64,3 +64,45 @@ h2 {
   padding: 1.2em 0;
   margin-top: 1em;
 }
+
+/* ドロップダウンメニュー全体のスタイル */
+.dropdown_b {
+  position: relative;
+}
+
+.dropdown_contents_b {
+  display: none; /* 初期状態では非表示 */
+  position: absolute;
+  background-color: $bg-base-color;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 0.5em 0;
+  border-radius: 0.5em;
+  min-width: 150px; /* ドロップダウンの最小幅を指定 */
+  right: 5px;
+}
+
+/* ホバー時にドロップダウンメニューを表示 */
+.dropdown_b:hover .dropdown_contents_b {
+  display: block;
+}
+
+.dropdown_toggle_b {
+  cursor: pointer;
+  width: 50px;  /* アバターの幅 */
+  height: 50px; /* アバターの高さ */
+  border-radius: 0.5em; /* 丸い形にする */
+  object-fit: cover;  /* 画像のアスペクト比を維持 */
+}
+
+/* ドロップダウン内のリンクのスタイル */
+.dropdown_contents_b a {
+  display: block; /* リンクをボックス状にする */
+  padding: 0.5em; /* リンクに余白を追加 */
+  border-radius: 0.25em; /* リンクの角を丸める */
+  background-color: $bg-base-color; /* 背景色を設定 */
+  text-align: center; /* テキストを中央揃え */
+  white-space: nowrap; /* テキストを折り返さずに表示 */
+  text-decoration: underline;
+}
+
