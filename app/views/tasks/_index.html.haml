@@ -2,4 +2,4 @@
   %h2 All Tasks
   = render 'commons/tasks', tasks: @tasks
   %div.new_card
-    = link_to '+ Add New Task', new_task_path, class: 'new_task'
+    = link_to '+ Add New Task', new_board_task_path(@tasks), class: 'new_task'
