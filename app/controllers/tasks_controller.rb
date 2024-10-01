@@ -2,26 +2,28 @@ class TasksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    board = Board.find(params[:board_id])
+    @tasks = board.tasks.all
   end
 
   def new
-    @task = current_user.tasks.build
+    board = Board.find(params[:board_id])
+    @task = board.tasks.build
   end
 
   def create
-    @task = current_user.tasks.build(task_params)
+    board = Board.find(params[:board_id])
+    @task = board.tasks.build(task_params)
     if @task.save
-      redirect_to task_path(@task), notice: '保存できたよ'
+      redirect_to board_path(board), notice: '保存できたよ'
     else
-      puts @board.errors.full_messages #エラーメッセージをコンソールに出力
+      puts @task.errors.full_messages #エラーメッセージをコンソールに出力
       flash.now[:error] = '保存に失敗しました' #失敗時にエラーメッセージを一時表示
       render :new
     end
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def edit
@@ -33,7 +35,6 @@ class TasksController < ApplicationController
   def destroy
   end
 
-  private
   def task_params
     params.require(:task).permit(
       :title,
