@@ -55,7 +55,8 @@ class TasksController < ApplicationController
       :title,
       :description,
       :delivery,
-      :eyecatch
+      :eyecatch,
+      :board_id
     )
   end
 

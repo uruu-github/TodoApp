@@ -10,6 +10,7 @@
               method: @task.persisted? ? :patch : :post, 
               local: true,
               multipart: true) do |f|
+    = f.hidden_field :board_id, value: @board.id  # 追加
     .field
       = f.label :eyecatch, class: 'label'
       - if @task.eyecatch.attached?
