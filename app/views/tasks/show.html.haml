@@ -1,0 +1,16 @@
+.container
+  %h2 タスクNo.#{@task.id}
+  .label Eyecatch
+  .task_eyecatch
+  - if @task.eyecatch.present?
+    =image_tag @task.eyecatch, class: 'eyecatch'
+  .field
+    .label Title
+    .text_field= @task.title
+  .field
+    .label Description
+    .text_area= @task.description
+  .field
+    .label Delivery
+    .text= @task.delivery
+  = link_to 'タスク一覧へ戻る', board_path(@board), class: 'label'

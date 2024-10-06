@@ -1,0 +1,16 @@
+.card
+  .task_header
+    .task_number タスクNo: #{task.id}
+    - if user_signed_in? && current_user.tasks.exists?(id: task.id)
+      .dropdown_t
+        = image_tag 'edit.png', class: 'dropbtn_t'
+        .dropdown_contents_t.mini_t
+          = link_to '編集する', edit_board_task_path(board, task)
+          = link_to '削除する', board_task_path(board, task), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
+  = link_to board_task_path(board) do
+    .task_eyecatch
+      - if task.eyecatch.present?
+        =image_tag task.eyecatch, class: 'eyecatch'
+    .task_title= task.title
+    .task_desc= task.description
+
