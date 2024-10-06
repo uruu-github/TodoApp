@@ -23,7 +23,7 @@ gem 'jbuilder'
 gem 'rubocop'
 gem 'sassc-rails'
 gem 'rails-i18n'
-
+gem 'aws-sdk-s3', require: false
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
