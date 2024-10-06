@@ -117,3 +117,10 @@ left: 5px;      /* 左からの距離 */
   text-decoration: underline;
 }
 
+
+.comments {
+  border-radius: 0.5em;
+  border: 0.01em solid $bg-dark-color;
+  margin-bottom: 0.2em;
+  background-color: white;
+}

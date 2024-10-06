@@ -1,0 +1,8 @@
+.container
+  = form_with(model: [@board, @task, @comment], local: true) do |form|
+    .field
+      = form.label :description, "Comment",class: 'label'
+      = form.text_area :description, class: 'text_area'
+
+    .field
+      = form.submit "Submit", class: 'submit_btn'
