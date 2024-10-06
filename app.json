@@ -1,0 +1,16 @@
+{
+    "name": "todp app",
+    "description": "This is todpapp",
+    "keywords": [],
+    "website": "",
+    "repository": "https://github.com/uruu-github/TodoApp",
+    "env": {},
+    "addons": [
+      "heroku-postgresql:hobby-dev"
+    ],
+    "buildpacks": [{
+      "url": "heroku/nodejs"
+    }, {
+      "url": "heroku/ruby"
+    }]
+  }
