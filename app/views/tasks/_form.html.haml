@@ -12,7 +12,9 @@
               multipart: true) do |f|
     .field
       = f.label :eyecatch, class: 'label'
-      = f.file_field :eyecatch
+      - if @task.eyecatch.attached?
+        = image_tag url_for(@task.eyecatch), alt: "Current image"
+      %div= f.file_field :eyecatch
     .field
       = f.label :title, class: 'label'
       = f.text_field :title, class: 'text_field'
