@@ -13,7 +13,7 @@ module TodoApp
 
     if Rails.env.development? || Rails.env.test?
       Bundler.require(*Rails.groups)
-      Dotenv::Railtie.load
+      Dotenv::Rails.load
     end
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
