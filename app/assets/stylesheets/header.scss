@@ -7,8 +7,15 @@
 
   .header_logos {
     display: flex;
-    justify-content: end;    /* コンテンツを右端に揃える */
+    justify-content: space-between;    /* コンテンツを右端に揃える */
+    align-items: center;
   }
+
+.header_title {
+  font-size: 2rem;
+  margin-left: 0.5em;
+  font-weight: bold;
+}
 
 /* ドロップダウンメニュー全体のスタイル */
 .dropdown {
