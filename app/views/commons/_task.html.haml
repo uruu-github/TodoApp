@@ -5,9 +5,9 @@
       .dropdown_t
         = image_tag 'edit.png', class: 'dropbtn_t'
         .dropdown_contents_t.mini_t
-          = link_to '編集する', edit_board_task_path(@board)
-          = link_to '削除する', board_task_path(@board), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
-  = link_to board_task_path(@board) do
+          = link_to '編集する', edit_board_task_path(board)
+          = link_to '削除する', board_task_path(board), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
+  = link_to board_task_path(board) do
     .task_eyecatch
       =image_tag task.eyecatch, class: 'eyecatch'
     .task_title= task.title

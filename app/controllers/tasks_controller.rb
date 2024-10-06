@@ -1,19 +1,18 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_board, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+  before_action :set_task, only: [:edit, :update, :show, :destroy]
 
   def index
-    @board = Board.find(params[:board_id])
     @tasks = @board.tasks.all
   end
 
   def new
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.build
     @task.user = current_user
   end
 
   def create
-    @board = Board.find(params[:board_id])
     @task = @board.tasks.build(task_params)
     @task.user = current_user
     if @task.save
@@ -26,9 +25,11 @@ class TasksController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
+
   end
 
   def update
@@ -36,6 +37,8 @@ class TasksController < ApplicationController
 
   def destroy
   end
+
+  private
 
   def task_params
     params.require(:task).permit(
@@ -45,6 +48,22 @@ class TasksController < ApplicationController
       :eyecatch,
       :user
     )
+  end
+
+  def set_board
+    @board = Board.find(params[:board_id])
+  end
+
+  # def set_task
+  #   @task = @board.tasks.find(params[:id])
+  # end
+
+  def set_task
+    @task = @board.tasks.find_by(id: params[:id])
+    if @task.nil?
+      flash[:error] = "指定されたタスクが見つかりませんでした"
+      redirect_to board_path(@board)
+    end
   end
 
 end

@@ -1,7 +1,7 @@
 .container
   %h2 All Tasks
   - if tasks.present?
-    = render 'commons/tasks', tasks: tasks
+    = render 'commons/tasks', tasks: tasks, board: board
   - else
     %div.text_field まだタスクがありません
   %div.new_card
