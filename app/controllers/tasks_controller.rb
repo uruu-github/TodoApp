@@ -63,12 +63,14 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    @task = @board.tasks.find(params[:id])
-    if @task.nil?
+    begin
+      @task = @board.tasks.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
       flash[:error] = "指定されたタスクが見つかりませんでした"
       redirect_to board_path(@board)
     end
   end
+
 
   def set_edit_task
     @board = current_user.boards.find(params[:board_id])
