@@ -25,6 +25,8 @@ gem 'sassc-rails'
 gem 'rails-i18n'
 gem 'aws-sdk-s3', require: false
 ruby '3.1.6'
+gem 'dotenv-rails', groups: [:development, :test]
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
