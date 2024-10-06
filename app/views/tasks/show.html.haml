@@ -13,4 +13,15 @@
   .field
     .label Delivery
     .text= @task.delivery
+  
+  .div
+    %h2 コメント一覧
+    - @comments.each do |comment|
+      .comments
+        %p= comment.description
+    = link_to new_board_task_comment_path(@board, @task) do
+      .submit_btn
+        コメントを追加
+  
   = link_to 'タスク一覧へ戻る', board_path(@board), class: 'label'
+
