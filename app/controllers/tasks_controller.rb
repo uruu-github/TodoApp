@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_board, only: [:index, :new, :create, :edit, :update, :destroy, :show]
-  before_action :set_task, only: [:edit, :update, :show, :destroy]
+  before_action :set_board, only: [:index, :new, :create, :destroy, :show]
+  before_action :set_task, only: [:show, :destroy]
+  before_action :set_edit_task, only: [:edit, :update]
 
   def index
     @tasks = @board.tasks.all
@@ -25,17 +26,25 @@ class TasksController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-
   end
 
   def update
+    puts "Updating task with params: #{task_params.inspect}"
+    if @task.update(task_params)
+      redirect_to board_task_path(@board, @task), notice: 'タスクを更新しました'
+    else
+      puts @task.errors.full_messages # エラーメッセージを出力
+      flash.now[:error] = 'タスクの更新に失敗しました'
+      render :edit
+    end
   end
 
   def destroy
+    @task.destroy!
+    redirect_to board_path(@board), notice: '削除に成功しました'
   end
 
   private
@@ -45,8 +54,7 @@ class TasksController < ApplicationController
       :title,
       :description,
       :delivery,
-      :eyecatch,
-      :user
+      :eyecatch
     )
   end
 
@@ -54,16 +62,17 @@ class TasksController < ApplicationController
     @board = Board.find(params[:board_id])
   end
 
-  # def set_task
-  #   @task = @board.tasks.find(params[:id])
-  # end
-
   def set_task
-    @task = @board.tasks.find_by(id: params[:id])
+    @task = @board.tasks.find(params[:id])
     if @task.nil?
       flash[:error] = "指定されたタスクが見つかりませんでした"
       redirect_to board_path(@board)
     end
+  end
+
+  def set_edit_task
+    @board = current_user.boards.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
   end
 
 end

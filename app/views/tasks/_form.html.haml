@@ -1,11 +1,15 @@
 .container
   %h2
-    - if task.id.present?
-      タスクNo. #{task.id}
+    - if @task.persisted?
+      タスクNo. #{@task.id}
     - else
       New Task
 
-  = form_with(model: task, url: board_tasks_path(@board), method: 'post', local: true, data: { turbo: false }, multipart: true ) do |f|
+  = form_with(model: @task, 
+              url: @task.persisted? ? board_task_path(@board, @task) : board_tasks_path(@board), 
+              method: @task.persisted? ? :patch : :post, 
+              local: true,
+              multipart: true) do |f|
     .field
       = f.label :eyecatch, class: 'label'
       = f.file_field :eyecatch
@@ -19,4 +23,4 @@
       = f.label :delivery, class: 'label'
       = f.date_field :delivery, class: 'text'
     .actions
-      = f.submit "Submit" ,class: 'submit_btn'
+      = f.submit "Submit", class: 'submit_btn'
