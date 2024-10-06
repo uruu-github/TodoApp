@@ -16,10 +16,6 @@
 #  index_tasks_on_board_id  (board_id)
 #  index_tasks_on_user_id   (user_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
-#
 class Task < ApplicationRecord
   belongs_to :user
   belongs_to :board
