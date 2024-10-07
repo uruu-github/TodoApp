@@ -15,8 +15,6 @@
       = f.label :eyecatch, class: 'label'
       - if @task.eyecatch.attached?
         = image_tag url_for(@task.eyecatch), alt: "Current image"
-      - else
-        %P No Image
       %div= f.file_field :eyecatch
     .field
       = f.label :title, class: 'label'
