@@ -20,6 +20,7 @@ class TasksController < ApplicationController
       redirect_to board_path(@board), notice: '保存できたよ'
     else
       puts @task.errors.full_messages #エラーメッセージをコンソールに出力
+      Rails.logger.error(@task.errors.full_messages)
       flash.now[:error] = '保存に失敗しました' #失敗時にエラーメッセージを一時表示
       render :new
     end
